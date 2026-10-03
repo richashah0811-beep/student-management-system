@@ -1,0 +1,200 @@
+<html> 
+
+<head>
+    <title> Student Management System </title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial;
+            background-color: beige;
+            margin : 0;
+
+        }
+
+        header{
+            background-color: aquamarine;
+            color: white;
+            text-align: center;
+            padding: 25px;
+
+        }
+
+        nav a{
+            color:peru;
+            text-decoration: none;
+            margin: 20px;
+        }
+
+
+
+        main{
+            width:80%;
+            margin:30px auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+
+        }
+
+        input,select{
+
+            width: 100%;
+            padding:15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+
+        button{
+            background-color: azure;
+            color: blue;
+            padding: 12px 20px;
+            border:none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: paleturquoise;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        p{
+           color:purple; 
+        }
+
+        h2{
+            color:burlywood;
+        }
+
+        .card{
+            background-color: chocolate;
+            padding: 20px;
+        }
+
+        .card2{
+            background-color: blueviolet;
+            padding: 20px;
+        }
+
+        #studentName{
+            border: 2px solid blue;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-evenly; /* center, space-between, space-around */
+            align-items: center;
+            gap: 30px
+        }
+
+
+
+    </style>
+</head>
+
+
+
+<body>
+
+   <header>
+    <h1> Student Management System</h1>
+    <p> Manage students information easily. </p>
+
+   </header> 
+
+   <nav>
+    <a href="#">Home</a>
+    <a href="#">Students</a>
+    <a href="#">Reports</a>
+   </nav>
+
+   
+<main>
+
+<section class="card">
+    <h2> Student Information </h2>
+
+    <form> 
+        <label> Student Name</label>
+        <input type="text" id="studentName">
+
+        <br><br>
+
+        <label> Enter Email </label>
+        <input type="email" id="email">
+
+        <br><br>
+
+        <label> Select Course </label>
+        <select id="course">
+            <option> Data Science</option>
+            <option> Data Analytics</option>
+            <option> Web Development </option>
+
+        </select>
+
+        <br><br>
+
+        <label> Enter Marks </label>
+        <input type="number" id="marks">
+
+        <button id="addStudent" type = "button">Add Student </button>
+
+    </form>
+
+</section>
+
+
+<section class="card2">
+
+    <h2> Student Details </h2>
+
+<div id="result">
+    Student information will be displayed here.
+    
+</div>
+
+</section>
+
+</main>
+
+<script>
+    function addStudent(){
+let studentName = document.getElementById("studentName").value;
+let email = document.getElementById("email").value;
+let course = document.getElementById("course").value;
+let marks = document.getElementById("marks").value;
+
+if(marks===""){
+    alert("Please enter valid marks");
+    return
+}
+document.getElementById("result").innerHTML = `
+
+<h3> Student info will be displayed here </h3>
+<p> Name: ${studentName} </p>
+<p> Email: ${email} </p>
+<p> Course: ${course} </p>
+<p> Marks: ${marks} </p>
+`;
+console.log(studentName);
+console.log(email);
+console.log(course);
+console.log(marks);
+    }
+let button = document.getElementById("addStudent");
+button.addEventListener("click", addStudent)
+
+</script>
+
+
+
+</body>
+
+
+</html>
